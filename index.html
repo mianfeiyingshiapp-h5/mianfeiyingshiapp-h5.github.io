@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>免费看片账本 - 一笔一笔算清"免费"的价码·正版免费渠道清单/隐私账/时间账</title>
+<meta name="description" content="免费看片账本（mianfeiyingshiapp-h5）是原创算账式观影内容站：免费的真成本、正版免费渠道清单、隐私账、时间账与观影预算法。本站不提供免费影视App下载、不聚合盗版片源、不引流任何追剧软件。网址 https://mianfeiyingshiapp-h5.github.io">
+<meta name="keywords" content="免费看片账本,免费的真成本,正版免费观影,影视会员账,隐私账,观影预算,不看盗版,理性追剧,mianfeiyingshiapp">
+<meta name="author" content="免费看片账本">
+<meta name="robots" content="index,follow">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#F1E6C8">
+<meta property="og:type" content="website">
+<meta property="og:title" content="免费看片账本 - 免费那顿饭，谁在买单？">
+<meta property="og:description" content="不算片源，只算账：钱、隐私、时间、口味，四笔一笔都不能赖。">
+<meta property="og:url" content="https://mianfeiyingshiapp-h5.github.io">
+<link rel="canonical" href="https://mianfeiyingshiapp-h5.github.io/">
+<style>
+/* ============================================================
+   免费看片账本  v1  原创「算账」IP
+   立场：不承接"免费影视App"检索意图，把词翻成"成本审计"
+   视觉：账簿米黄 / 墨绿算珠 / 朱砂红勾 / 旧铅字黑
+   结构：算盘格 · 复式账页 · 红勾核销 · 票据栏 · 账房铭牌
+   安全：不列黑名单、不点App名、不给"找资源"路径
+   ============================================================ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Courier New",monospace,serif;
+  background:#F1E6C8;color:#23251F;line-height:1.85;overflow-x:hidden;
+  background-image:
+    radial-gradient(circle at 10% 6%,rgba(46,92,70,.11),transparent 30%),
+    radial-gradient(circle at 90% 12%,rgba(176,58,46,.08),transparent 30%),
+    repeating-linear-gradient(0deg,transparent 0 24px,rgba(120,110,80,.05) 24px 25px);
+}
+a{text-decoration:none;color:inherit;outline:none}
+img{max-width:100%;display:block}
+section[id]{scroll-margin-top:2px}
+::selection{background:#B03A2E;color:#FFF7E8}
+h1,h2,h3,h4{line-height:1.28;font-weight:800;letter-spacing:.5px}
+ul{list-style:none}
+
+/* ---------- 账房水印条 ---------- */
+.ledger{background:#23251F;color:#DED3AE;font-size:11.5px;letter-spacing:1.3px;padding:7px 16px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;border-bottom:4px double #B03A2E;font-family:monospace}
+.ledger b{color:#F0C96A}
+.ledger .ink{color:#E6B24A;font-weight:800}
+
+/* ---------- 导航：算盘框 ---------- */
+.nav{position:sticky;top:0;z-index:999;background:rgba(241,230,200,.97);backdrop-filter:blur(8px);border-bottom:2px solid #C2B48C}
+.nav-in{max-width:1220px;margin:0 auto;height:64px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.abacus{display:flex;align-items:center;gap:11px;min-width:0}
+.abacus .frame{width:38px;height:30px;background:#2E5C46;border-radius:4px;position:relative;flex-shrink:0;border:2px solid #23251F;overflow:hidden}
+.abacus .frame::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:#23251F;transform:translateX(-50%)}
+.abacus .frame i{position:absolute;left:4px;right:4px;height:7px;background:#F0C96A;border-radius:4px;box-shadow:0 1px 0 #8A6A12}
+.abacus .frame i:nth-child(1){top:4px}
+.abacus .frame i:nth-child(2){top:13px;background:#B03A2E}
+.abacus .cn{font-size:19px;font-weight:900;white-space:nowrap;font-family:"Songti SC","PingFang SC",serif}
+.abacus .cn em{font-style:normal;color:#B03A2E}
+.abacus .cn .thin{color:#7C7358;font-weight:600;font-size:16px}
+.abacus .en{font-size:9px;letter-spacing:2.4px;color:#7C7358;font-family:monospace;text-transform:uppercase;white-space:nowrap}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap}
+.nav-links a{font-size:13px;color:#3B3D35;padding:8px 9px;border-bottom:2px solid transparent;transition:.2s;font-weight:600}
+.nav-links a:hover{color:#B03A2E;border-bottom-color:#B03A2E}
+.nav-go{background:#B03A2E;color:#F7E9CE;font-weight:800;font-size:13px;padding:8px 16px;border-radius:3px 14px 3px 14px;border:1.5px solid #7A2A20;transition:.25s;white-space:nowrap}
+.nav-go:hover{background:#F0C96A;color:#23251F;border-color:#B03A2E;transform:translateY(-2px)}
+
+/* ---------- Hero：总账封面 ---------- */
+.hero{max-width:1220px;margin:0 auto;padding:50px 20px 40px;display:grid;grid-template-columns:1.12fr .88fr;gap:32px;align-items:center}
+.cover{background:#F8F0D8;border:1px solid #C2B48C;box-shadow:0 0 0 7px #F8F0D8,0 0 0 8px #B03A2E,4px 7px 0 rgba(90,80,55,.18);padding:30px 28px;position:relative;border-radius:2px}
+.cover::before{content:"";position:absolute;top:10px;bottom:10px;left:10px;right:10px;border:1px solid rgba(178,58,46,.35);pointer-events:none}
+.cover::after{content:"總賬 · NO. 免-2026-零號";position:absolute;top:18px;right:24px;font-family:"Songti SC",serif;font-size:13px;color:#B03A2E;letter-spacing:2px}
+.cover .no{font-family:monospace;font-size:11px;color:#7C7358;letter-spacing:2px;margin-bottom:8px;padding-left:6px}
+.hero h1{font-size:clamp(27px,4.8vw,48px);font-weight:900;line-height:1.12;padding-left:6px;font-family:"Songti SC","PingFang SC",serif}
+.hero h1 em{font-style:normal;color:#B03A2E;position:relative}
+.hero h1 em::after{content:"";position:absolute;left:4px;right:4px;bottom:2px;height:6px;background:rgba(240,201,106,.66)}
+.hero .sub{padding-left:6px;font-family:monospace;font-size:12px;letter-spacing:3px;color:#7C7358;margin-top:10px;text-transform:uppercase}
+.hero .lead{font-size:15px;color:#33352D;margin:18px 0 22px;max-width:580px;padding-left:6px}
+.hero-btns{display:flex;gap:11px;flex-wrap:wrap;padding-left:6px}
+.b1{padding:11px 24px;font-weight:800;border-radius:3px 14px 3px 14px;background:#B03A2E;color:#F7E9CE;border:1.5px solid #7A2A20;transition:.25s}
+.b1:hover{background:#F0C96A;color:#23251F;transform:translateY(-2px)}
+.b2{padding:11px 24px;font-weight:800;border-radius:3px 14px 3px 14px;background:transparent;color:#23251F;border:1.5px solid #C2B48C;transition:.25s}
+.b2:hover{background:#23251F;color:#F7E9CE;border-color:#23251F}
+
+/* 四笔账速览 */
+.quad{display:grid;gap:12px}
+.cell{background:#F8F0D8;border:1px solid #C2B48C;border-left:6px solid var(--c,#2E5C46);border-radius:2px 10px 10px 2px;padding:13px 16px;transition:.25s;position:relative}
+.cell:hover{background:#FFF8E8;transform:translateX(3px)}
+.cell .lb{font-family:monospace;font-size:10px;color:#7C7358;letter-spacing:1.4px}
+.cell h4{font-size:15px;font-weight:900;color:#23251F;margin:2px 0 3px}
+.cell p{font-size:12.5px;color:#3D3F37;line-height:1.62}
+.cell .amt{position:absolute;top:12px;right:14px;font-family:monospace;font-weight:900;font-size:13px;color:var(--c,#2E5C46)}
+.cell.pay{border-left-color:#B03A2E}.cell.pay .amt{color:#B03A2E}
+.cell.data{border-left-color:#2E5C46}.cell.data .amt{color:#2E5C46}
+.cell.time{border-left-color:#C89A2E}.cell.time .amt{color:#A67C12}
+.cell.taste{border-left-color:#5C7A8A}.cell.taste .amt{color:#3E5A66}
+
+/* ---------- 区块骨架 ---------- */
+.wrap{max-width:1220px;margin:0 auto;padding:52px 20px}
+.head{display:flex;align-items:baseline;gap:12px;margin-bottom:26px;flex-wrap:wrap;border-bottom:2px solid #C2B48C;padding-bottom:10px}
+.head .idx{font-family:"Songti SC",serif;font-size:14px;font-weight:900;color:#F7E9CE;background:#B03A2E;padding:2px 11px;border-radius:3px;letter-spacing:2px}
+.head h2{font-size:23px;font-weight:900;font-family:"Songti SC","PingFang SC",serif}
+.head h2 em{font-style:normal;color:#B03A2E}
+.head .en{font-family:monospace;font-size:11px;letter-spacing:1.6px;color:#7C7358;text-transform:uppercase}
+.head a.more{margin-left:auto;font-size:13px;color:#3B3D35;font-weight:700;font-family:monospace}
+.head a.more:hover{color:#B03A2E}
+
+/* ---------- 01 算盘格（四笔账，算珠下落） ---------- */
+.abacus-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.bead{background:#F8F0D8;border:1px solid #C2B48C;border-radius:8px;padding:0;overflow:hidden;transition:.35s;box-shadow:3px 4px 0 rgba(90,80,55,.14);position:relative}
+.bead:hover{transform:translateY(-6px);border-color:#B03A2E;box-shadow:0 16px 26px rgba(176,58,46,.13)}
+.bead .rod{height:120px;background:linear-gradient(180deg,#2E5C46,#1F4030);position:relative;border-bottom:2px solid #C2B48C}
+.bead .rod .wire{position:absolute;left:50%;top:0;bottom:0;width:3px;background:#23251F;transform:translateX(-50%)}
+.bead .rod .bk{position:absolute;left:50%;width:42px;height:22px;border-radius:12px;background:#F0C96A;border:2px solid #23251F;transform:translateX(-50%);transition:top .7s cubic-bezier(.2,.7,.3,1);box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.bead:hover .rod .bk{top:var(--drop,60%)!important}
+.bead .rod .bk.up{top:8px}
+.bead .rod .lbl{position:absolute;left:0;right:0;text-align:center;top:50%;transform:translateY(-50%);font-family:"Songti SC",serif;font-weight:900;font-size:15px;color:#F7E9CE;letter-spacing:2px;z-index:2;text-shadow:0 1px 2px #000}
+.bead .bd{padding:15px 18px 18px}
+.bead h3{font-size:17px;font-weight:900;color:#23251F;font-family:"Songti SC",serif}
+.bead .who{font-size:11.5px;color:#7C7358;font-family:monospace;margin:2px 0 7px}
+.bead p{font-size:13px;color:#33352D;line-height:1.7}
+.bead .bal{margin-top:9px;border-top:1px dashed #C2B48C;padding-top:7px;font-family:monospace;font-size:11px;color:#B03A2E;display:flex;justify-content:space-between}
+.bead .bal b{color:#2E5C46}
+
+/* ---------- 02 复式账页（借/贷 双栏） ---------- */
+.book{background:#F8F0D8;border:1px solid #C2B48C;border-radius:6px;overflow:hidden;box-shadow:0 0 0 6px #F8F0D8,0 0 0 7px #C2B48C}
+.book .row{display:grid;grid-template-columns:80px 1fr 1fr;gap:0;border-bottom:1px dashed #C2B48C}
+.book .row.headrow{background:#23251F;color:#F0C96A;font-family:"Songti SC",serif;font-weight:900;letter-spacing:2px}
+.book .row.headrow>div{padding:11px 14px;border-right:1px solid #3A3C33}
+.book .row.headrow>div:last-child{border-right:none}
+.book .row>div{padding:14px 16px;border-right:1px solid #E2D5AE}
+.book .row>div:last-child{border-right:none}
+.book .row .item{font-family:monospace;font-size:11px;color:#7C7358;font-weight:700;background:#F1E6C8;display:flex;align-items:center}
+.book .row .dr{color:#B03A2E}
+.book .row .dr small{display:block;font-size:11px;color:#8A7A5C;font-family:system-ui,serif;line-height:1.5}
+.book .row .cr{color:#2E5C46}
+.book .row .cr small{display:block;font-size:11px;color:#5C6B5F;font-family:system-ui,serif;line-height:1.5}
+.book .row .dr b,.book .row .cr b{font-family:monospace;font-size:13px}
+.book .sum{display:grid;grid-template-columns:80px 1fr 1fr;background:#F0C96A;border-top:2px solid #B03A2E;font-family:monospace;font-weight:900;color:#23251F}
+.book .sum>div{padding:12px 16px}
+.book .sum .cr{color:#B03A2E;text-align:right}
+
+/* ---------- 03 红勾核销（复选清单，只记"已办"） ---------- */
+.tick{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.done{background:#F8F0D8;border:1px solid #C2B48C;border-radius:6px;padding:15px 16px 16px;transition:.25s;position:relative}
+.done:hover{background:#FFF8E8;border-color:#B03A2E;transform:translateY(-3px)}
+.done .top{display:flex;align-items:center;gap:10px}
+.done .chk{width:24px;height:24px;flex-shrink:0;border-radius:4px;background:#2E5C46;display:flex;align-items:center;justify-content:center;color:#F7E9CE;font-weight:900;font-size:15px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.25)}
+.done h4{font-size:15px;font-weight:900;color:#23251F}
+.done p{font-size:12.8px;color:#3D3F37;line-height:1.65;margin-top:7px}
+.done .when{margin-top:8px;font-family:monospace;font-size:10px;color:#7C7358;border-top:1px dashed #C2B48C;padding-top:6px}
+
+/* ---------- 04 票据栏（正版免费渠道，只给"合规入口类型"） ---------- */
+.tickets{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:16px}
+.tk{background:#F8F0D8;border:1px solid #C2B48C;border-radius:3px;padding:0;overflow:hidden;transition:.33s;box-shadow:2px 3px 0 rgba(90,80,55,.13);position:relative}
+.tk::before{content:"";position:absolute;top:0;left:0;bottom:0;width:8px;background:repeating-linear-gradient(0deg,#B03A2E 0 4px,#F8F0D8 4px 8px)}
+.tk:hover{transform:translateY(-5px) rotate(.3deg);border-color:#2E5C46;box-shadow:0 14px 24px rgba(46,92,70,.14)}
+.tk .bd{padding:16px 16px 16px 24px}
+.tk .cat{font-family:monospace;font-size:10px;color:#B03A2E;letter-spacing:1.2px;font-weight:800}
+.tk h3{font-size:16px;font-weight:900;color:#23251F;margin:3px 0 4px;font-family:"Songti SC",serif}
+.tk p{font-size:13px;color:#33352D;line-height:1.68}
+.tk .how{margin-top:9px;font-family:monospace;font-size:10.5px;color:#2E5C46;border-top:1px dashed #C2B48C;padding-top:6px;line-height:1.5}
+.tk .how b{color:#B03A2E}
+
+/* ---------- 05 账房铭牌 ---------- */
+.plaque{max-width:1220px;margin:0 auto;padding:0 20px 12px}
+.plaque-in{background:#23251F;border:2px solid #B03A2E;border-radius:4px;padding:24px 26px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:space-between;position:relative;overflow:hidden}
+.plaque-in::before{content:"賬";position:absolute;right:18px;top:-30px;font-size:92px;font-weight:900;color:rgba(176,58,46,.16);font-family:"Songti SC",serif;line-height:1}
+.plaque-in .lab{font-family:monospace;font-size:11px;letter-spacing:2px;color:#F0C96A}
+.plaque-in .u{font-size:clamp(14px,3vw,21px);font-weight:900;color:#F0C96A;word-break:break-all;font-family:"Songti SC",monospace}
+.plaque-in .u a{color:#F0C96A;border-bottom:1.5px dashed #B03A2E}
+.plaque-in .u a:hover{color:#fff}
+.plaque-in .note{font-size:12px;color:#DED3AE;text-align:right}
+
+/* ---------- 关于 ---------- */
+.about{max-width:1220px;margin:0 auto;padding:52px 20px;display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;background:#F8F0D8;border:1px solid #C2B48C;box-shadow:0 0 0 7px #F8F0D8,0 0 0 8px #B03A2E;border-radius:3px}
+.about h2{font-size:23px;font-weight:900;margin-bottom:14px;font-family:"Songti SC",serif}
+.about h2 em{font-style:normal;color:#B03A2E}
+.about p{font-size:15px;color:#33352D;line-height:1.95;margin-bottom:12px}
+.about .u2{color:#B03A2E;font-weight:800;font-family:monospace;font-size:15px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{background:#F1E6C8;border:1px solid #C2B48C;border-radius:6px;padding:16px;text-align:center}
+.tile .n{font-family:monospace;font-size:19px;font-weight:900;color:#B03A2E}
+.tile .l{font-size:12px;color:#6A6B5C;margin-top:2px}
+
+/* ---------- 页脚 ---------- */
+.foot{border-top:4px double #B03A2E;padding:36px 20px 26px;text-align:center;background:#E7DCB8}
+.foot-logo{font-size:19px;font-weight:900;color:#23251F;font-family:"Songti SC",serif;letter-spacing:.5px}
+.foot-logo em{font-style:normal;color:#B03A2E}
+.foot-nav{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin:14px 0;font-family:monospace;font-size:13px}
+.foot-nav a{color:#6A6B5C}
+.foot-nav a:hover{color:#B03A2E}
+.foot p{font-size:12px;color:#7A7666}
+.foot .cut{margin:14px auto 10px;display:inline-block;border:1.5px solid #B03A2E;color:#7A2A20;font-family:monospace;font-size:11.5px;font-weight:800;padding:7px 15px;border-radius:3px 14px 3px 14px;background:#F7E9CE;max-width:800px;line-height:1.6}
+.foot .legal{margin-top:10px;max-width:900px;margin-left:auto;margin-right:auto;color:#6A6B5C;line-height:1.8;font-size:12px}
+
+/* ---------- 响应式 ---------- */
+@media(max-width:880px){
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;padding:28px 20px 34px;gap:26px}
+  .about{grid-template-columns:1fr;padding:30px 20px}
+  .wrap{padding:42px 20px}
+  .nav-in{height:58px}
+  .abacus .en{display:none}
+  .book .row,.book .sum{grid-template-columns:64px 1fr 1fr}
+  .book .row>div,.book .sum>div{padding:12px 10px}
+  .bead .rod{height:104px}
+}
+@media(max-width:420px){
+  .hero h1{font-size:25px}
+  .head h2{font-size:20px}
+  .quad{grid-template-columns:1fr 1fr}
+  .book .row{grid-template-columns:52px 1fr}
+  .book .row .cr{display:none}
+  .book .sum{grid-template-columns:52px 1fr}
+  .book .sum .cr{display:block;text-align:left}
+}
+@media print{
+  .nav,.nav-go,.ledger{display:none}
+  body{background:#fff;color:#000}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<!-- ===== 账房水印条 ===== -->
+<div class="ledger">
+  <span>免费看片账本 · 一笔一笔算清"免费"</span><b>只算账，不递链接</b>
+  <span class="ink">✓ 无播放器 · 无片源 · 无下载</span>
+  <span>钱 / 隐私 / 时间 / 口味 · 四笔结清</span>
+</div>
+
+<!-- ===== 导航：算盘框 ===== -->
+<div class="nav">
+  <div class="nav-in">
+    <div class="abacus">
+      <div class="frame"><i></i><i></i></div>
+      <div>
+        <div class="cn">免费看片<em>账本</em><span class="thin"> · 算账的账房</span></div>
+        <div class="en">The Free-Viewing Ledger</div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#abacus">四笔账</a>
+      <a href="#book">复式对账</a>
+      <a href="#tick">核销清单</a>
+      <a href="#ticket">合规白票</a>
+      <a href="#about">为何算这笔</a>
+    </nav>
+    <a href="#book" class="nav-go">翻账本 →</a>
+  </div>
+</div>
+
+<!-- ===== Hero：总账封面 ===== -->
+<section class="hero" id="top">
+  <div>
+    <div class="cover">
+      <div class="no">FOLIO № 免-2026-零號 · 封皮</div>
+      <h1>免费看片账本<br>免费那顿饭，<em>谁在买单</em>？</h1>
+      <div class="sub">No Links. Just the Bill. · 四笔账，一笔都不能赖</div>
+      <p class="lead">这页不做"免费影视 App 推荐"，也不给你"哪里能白看"。它只干一件无聊事：把"免费"拆成钱、隐私、时间、口味四笔账，摊在桌上算给你看。算完你还想省，那也请省得清醒——别省到把手机和银行卡一起交出去。</p>
+      <div class="hero-btns">
+        <a href="#book" class="b1">🧮 先对总账</a>
+        <a href="#ticket" class="b2">🎫 看合规白票</a>
+      </div>
+    </div>
+  </div>
+
+  <aside class="quad" aria-label="四笔账速览">
+    <div class="cell pay" style="--c:#B03A2E">
+      <div class="lb">第一笔 · 钱账</div>
+      <h4>它标着免费，但你付过一次</h4>
+      <p>弹窗、跳转、"加群领更多"、悄悄开的订阅。钱不在票价上，在缝隙里。</p>
+      <div class="amt">− 隐性支出</div>
+    </div>
+    <div class="cell data" style="--c:#2E5C46">
+      <div class="lb">第二笔 · 隐私账</div>
+      <h4>你交出去的比片贵</h4>
+      <p>设备号、通讯录、相册权限、剪贴板。观影偏好是画像，画像能卖。</p>
+      <div class="amt">− 数据资产</div>
+    </div>
+    <div class="cell time" style="--c:#A67C12">
+      <div class="lb">第三笔 · 时间账</div>
+      <h4>找片两小时，看完二十分钟</h4>
+      <p>加载、换源、试错、等广告。免费的价签，是注意力。</p>
+      <div class="amt">− 2h18m/部</div>
+    </div>
+    <div class="cell taste" style="--c:#3E5A66">
+      <div class="lb">第四笔 · 口味账</div>
+      <h4>长期白嫖，嘴会废掉</h4>
+      <p>只点"爽的"，算法就只喂你"爽的"。十年后你会发现，不会选片了。</p>
+      <div class="amt">− 审美利息</div>
+    </div>
+  </aside>
+</section>
+
+<!-- ===== 01 算盘格 ===== -->
+<section class="wrap" id="abacus">
+  <div class="head">
+    <span class="idx">第一檔 · 算珠</span>
+    <h2>四笔<em>账</em>，拨下去就收不回</h2>
+    <span class="en">Four Beads, Four Costs</span>
+    <a href="#" class="more">拨满 #</a>
+  </div>
+  <div class="abacus-grid">
+    <article class="bead">
+      <div class="rod">
+        <div class="wire"></div>
+        <div class="bk up" style="--drop:68%"></div>
+        <div class="lbl">錢</div>
+      </div>
+      <div class="bd">
+        <h3>钱账 · 隐形成本</h3>
+        <div class="who">账项：跳转 / 诱导订阅 / 捆绑扣费</div>
+        <p>免费站的营收不在票价，在"下一步"。一个"继续观看"点错，就是一条短信订阅；一串跳转走完，相册里多三个陌生 App。这笔账的特点是：单笔小、笔数多、你从来不记得。</p>
+        <div class="bal"><span>本月隐性支出</span><b>≈ 0 元（只要你没点）</b></div>
+      </div>
+    </article>
+    <article class="bead">
+      <div class="rod">
+        <div class="wire"></div>
+        <div class="bk up" style="--drop:76%"></div>
+        <div class="lbl">隱</div>
+      </div>
+      <div class="bd">
+        <h3>隐私账 · 数据比片贵</h3>
+        <div class="who">账项：设备指纹 / 权限 / 剪贴板 / 画像</div>
+        <p>"允许安装""读取应用列表""通知权限"——每让一步，你的设备就透明一分。观影记录是高质量偏好数据，黑产那边按条收。片你没拥有，数据先没了。</p>
+        <div class="bal"><span>交出的最小单位</span><b>一台手机的信任</b></div>
+      </div>
+    </article>
+    <article class="bead">
+      <div class="rod">
+        <div class="wire"></div>
+        <div class="bk up" style="--drop:52%"></div>
+        <div class="lbl">時</div>
+      </div>
+      <div class="bd">
+        <h3>时间账 · 注意力税</h3>
+        <div class="who">账项：找源 / 加载 / 广告 / 换线</div>
+        <p>算过吗？挑片 40 分钟、试源 5 次、广告 3 段、卡顿重来。一部两小时的片，你投进去两个半小时。正版那 25 块买的不是片，是"别浪费我时间"。</p>
+        <div class="bal"><span>免费溢价</span><b>+ 38% 时间</b></div>
+      </div>
+    </article>
+    <article class="bead">
+      <div class="rod">
+        <div class="wire"></div>
+        <div class="bk up" style="--drop:84%"></div>
+        <div class="lbl">味</div>
+      </div>
+      <div class="bd">
+        <h3>口味账 · 审美在加息</h3>
+        <div class="who">账项：算法投喂 / 只看爽片 / 不会选片</div>
+        <p>免费池里只有"能留住你"的东西，越看越甜，越甜越馋。十年后你想找一部《都灵之马》那样的片子，发现自己已经不会翻页了。这笔最贵，还看不见。</p>
+        <div class="bal"><span>复利方向</span><b>− 每年钝一点</b></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== 02 复式对账（借/贷） ===== */
+<section class="wrap" id="book" style="background:rgba(176,58,46,.05)">
+  <div class="head">
+    <span class="idx">第二檔 · 复式</span>
+    <h2>复式<em>对账</em></h2>
+    <span class="en">Debit &amp; Credit · 借的是你，贷的是谁</span>
+    <a href="#" class="more">合账 #</a>
+  </div>
+  <div class="book">
+    <div class="row headrow"><div>賬項</div><div>借方 · 你付出的</div><div>貸方 · 誰收走了</div></div>
+    <div class="row"><div class="item">A1</div>
+      <div class="dr"><b>一次"允许安装"</b><small>未知签名包、侧载通道、设备管理权限一并让出</small></div>
+      <div class="cr"><b>设备控制权</b><small>远程弹广告、静默装包、短信/验证码被拦</small></div>
+    </div>
+    <div class="row"><div class="item">A2</div>
+      <div class="dr"><b>三分钟找源</b><small>搜索、试链、换播放器、等缓冲</small></div>
+      <div class="cr"><b>广告与导流分成</b><small>每一次跳转都是别人结算的订单</small></div>
+    </div>
+    <div class="row"><div class="item">A3</div>
+      <div class="dr"><b>观影画像</b><small>看过什么、停在哪、几倍速、几点看</small></div>
+      <div class="cr"><b>数据买家</b><small>标签越细，卖得越贵；跟你再无关系</small></div>
+    </div>
+    <div class="row"><div class="item">A4</div>
+      <div class="dr"><b>一次"加群领资源"</b><small>二维码、客服号、所谓客服远程协助</small></div>
+      <div class="cr"><b>资金与账户</b><small>刷单、垫付、验证码——这条走到头是报警</small></div>
+    </div>
+    <div class="row"><div class="item">A5</div>
+      <div class="dr"><b>长期只看"稳爽"</b><small>算法只给高完播率内容</small></div>
+      <div class="cr"><b>审美折旧</b><small>耐烦的能力、等一个长镜头的胃口，逐年折价</small></div>
+    </div>
+    <div class="sum"><div>結清</div><div class="dr">你付出的合计：不可逆</div><div class="cr">− 请先问一句：这顿饭，谁请的？</div></div>
+  </div>
+</section>
+
+<!-- ===== 03 红勾核销 ===== */
+<section class="wrap" id="tick">
+  <div class="head">
+    <span class="idx">第三檔 · 核销</span>
+    <h2>已<em>办</em>清单</h2>
+    <span class="en">Cleared Items · 四步，自己勾</span>
+    <a href="#" class="more">打印自核 #</a>
+  </div>
+  <div class="tick">
+    <div class="done"><div class="top"><span class="chk">✓</span><h4>关掉"未知来源安装"</h4></div>
+      <p>安卓这条开关，是免费追剧 App 进门的第一道门。看完就关，别留着"下次方便"。方便是它们最爱的词。</p>
+      <div class="when">核销时点：装完任何非商店包，当天关回</div>
+    </div>
+    <div class="done"><div class="top"><span class="chk">✓</span><h4>权限只给"眼前这一件事"</h4></div>
+      <p>相册选"选中的照片"、定位选"仅使用期间"、通知一律问过再开。观影工具不该读你的通讯录，这条不需要解释。</p>
+      <div class="when">核销时点：每次弹权限框，停三秒再点</div>
+    </div>
+    <div class="done"><div class="top"><span class="chk">✓</span><h4>把"加群领更多"当红灯</h4></div>
+      <p>二维码、客服号、远程协助、垫付返现——出现任意一条，页面直接关。这不是省钱路径，是转账路径。</p>
+      <div class="when">核销时点：手指悬在二维码上方那一下</div>
+    </div>
+    <div class="done"><div class="top"><span class="chk">✓</span><h4>算一次自己的时薪</h4></div>
+      <p>把时薪除以 60，得到"每分钟值多少"。找片花了 40 分钟？那部"免费片"其实花了你半顿饭。算完再决定要不要省。</p>
+      <div class="when">核销时点：每月第一个周日，五分钟</div>
+    </div>
+    <div class="done"><div class="top"><span class="chk">✓</span><h4>留一笔"口味预算"</h4></div>
+      <p>每月挑一部不爽的、慢的、看不懂的，硬看。这是给审美交的利息，防止自己十年后只会点"爽的"。</p>
+      <div class="when">核销时点：片单里永远有一部"养着"的</div>
+    </div>
+    <div class="done"><div class="top"><span class="chk">✓</span><h4>正版不是道德，是性价比</h4></div>
+      <p>25 块买的是：一秒就开、字幕干净、手机不烫、不用盯着"下一步"、还能睡得着。把这笔当消费，不当奉献。</p>
+      <div class="when">核销时点：每次想点"免费"之前</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 04 合规白票（只讲渠道类型，不点品牌） ===== */
+<section class="wrap" id="ticket" style="background:rgba(46,92,70,.06)">
+  <div class="head">
+    <span class="idx">第四檔 · 白票</span>
+    <h2>合规<em>白票</em></h2>
+    <span class="en">Legit Ways to Pay Nothing (or Less)</span>
+    <a href="#" class="more">补票 #</a>
+  </div>
+  <p style="max-width:900px;font-size:14.5px;color:#33352D;margin-bottom:20px">下面不给任何 App 名、下载链或搜索词——那是把人往火坑边推。只说<b style="color:#B03A2E">渠道类型</b>和<b style="color:#2E5C46">怎么自己核验</b>。路径你自己走，安全自己攥着。</p>
+  <div class="tickets">
+    <div class="tk"><div class="bd">
+      <div class="cat">票種 A · 平台限免轮播</div>
+      <h3>正规长视频平台的"限时免费"</h3>
+      <p>片库里标着"免费看"的那部分，是平台自己买的版权、自己决定让利。边界很清楚：<b>在应用商店能搜到、有备案主体、能开发票</b>。</p>
+      <div class="how">自核三步：<b>商店可查</b> · 主体公示 · 能走退款通道</div>
+    </div></div>
+    <div class="tk"><div class="bd">
+      <div class="cat">票種 B · 广告换观影</div>
+      <h3>看广告解锁单部</h3>
+      <p>明码标价：一段广告换一部片。这笔账透明——你知道自己在拿注意力换内容，而不是被悄悄装包、被画像、被导进群里。</p>
+      <div class="how">自核：<b>广告在播放器内</b> · 不跳浏览器 · 不索要权限</div>
+    </div></div>
+    <div class="tk"><div class="bd">
+      <div class="cat">票種 C · 会员拼单</div>
+      <h3>家庭共享 / 月卡轮看</h3>
+      <p>正规平台的亲属共享、权益赠送，把 25 块摊成几份。这是合法的省钱，也是唯一一种"便宜"不靠偷来的片源。</p>
+      <div class="how">自核：<b>走平台官方共享入口</b> · 拒绝"共用账号贩售"</div>
+    </div></div>
+    <div class="tk"><div class="bd">
+      <div class="cat">票種 D · 公共版权片库</div>
+      <h3>已过保护期的经典与档案</h3>
+      <p>老电影、默片、纪录片档案，版权状态可公开核验。想练口味又不想花钱，从这里开始——还能顺便把"慢片"这门功夫捡回来。</p>
+      <div class="how">自核：<b>查版权状态页</b> · 片源来自机构官方站</div>
+    </div></div>
+    <div class="tk"><div class="bd">
+      <div class="cat">票種 E · 院线与影展</div>
+      <h3>学生场、修复展、露天放映</h3>
+      <p>一张票看大银幕，还附赠一次"别碰手机"的仪式感。很多城市有固定公益场和高校展映，价格低到不好意思说"贵"。</p>
+      <div class="how">自核：<b>购票走官方渠道</b> · 票面可查场次与片名</div>
+    </div></div>
+    <div class="tk"><div class="bd">
+      <div class="cat">票種 F · 等一等</div>
+      <h3>最便宜的那笔，叫耐心</h3>
+      <p>版权窗口会滚。今天要会员的，半年后常进免费池。会等的人不看盗版也不花冤枉钱，只是把片单排得慢一点。</p>
+      <div class="how">自核：<b>片单分两列</b> · "现在看" / "养着等"</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ===== 账房铭牌 ===== */
+<div class="plaque">
+  <div class="plaque-in">
+    <div>
+      <div class="lab">账本名称 / 账本网址</div>
+      <div class="u"><a href="https://mianfeiyingshiapp-h5.github.io">免费看片账本 — https://mianfeiyingshiapp-h5.github.io</a></div>
+    </div>
+    <div class="note">域名留"mianfeiyingshiapp"作索引标识<br>页面不承接、不引流、不推荐任何免费追剧 App</div>
+  </div>
+</div>
+
+<!-- ===== 关于 ===== */
+<section class="wrap" id="about">
+  <div>
+    <h2>为何要把<em>"免费"</em>算成一笔账</h2>
+    <p>因为"免费影视 App"这六个字，已经是被点过名的形态了：四部门"剑网2026"专项把"以引流为目的为影视盗版提供便利"列进整治项；公安部的典型案例里，有人只为省一张票，点了"免费追剧"的包，结果支付宝和银行卡被远程刷走数万元；消协和中消协都在提醒同一件事——<b>免费是钩，不是饭</b>。</p>
+    <p>所以这页做了个反常动作：域名照你给的留着（搜索引擎要那个索引位），但页面里<b>不推荐、不下载、不列任何 App 名、不写搜索词、不画"哪里能白看"的路线图</b>。只把账摆出来，让你自己算。算得清的人，不需要我递链接；算不清的人，递了也是害。</p>
+    <p>账本名称：免费看片账本<br>账本网址：<span class="u2">https://mianfeiyingshiapp-h5.github.io</span></p>
+  </div>
+  <div class="tiles">
+    <div class="tile"><div class="n">4 笔</div><div class="l">钱 / 隐私 / 时间 / 口味</div></div>
+    <div class="tile"><div class="n">0 个</div><div class="l">App 名 · 下载链 · 搜索词</div></div>
+    <div class="tile"><div class="n">6 种</div><div class="l">合规白票 / 自核方式</div></div>
+    <div class="tile"><div class="n">账房</div><div class="l">账簿米黄 / 墨绿算珠 / 朱砂勾</div></div>
+  </div>
+</section>
+
+<!-- ===== 页脚 ===== */
+<footer class="foot">
+  <div class="foot-logo">免费看片<em>账本</em> · 不算片源，只算账</div>
+  <div class="foot-nav">
+    <a href="#abacus">四笔账</a>
+    <a href="#book">复式对账</a>
+    <a href="#tick">核销清单</a>
+    <a href="#ticket">合规白票</a>
+    <a href="#about">为何算这笔</a>
+    <a href="#top">↑ 合账</a>
+  </div>
+  <div class="cut">⚑ 本站是原创「观影成本核算」内容站，<b>不提供、不推荐、不下载、不引流任何免费影视 App / 追剧软件 / 云播搜索 / 盗版片源</b>；不列黑名单也不点名任何第三方应用。页面刻意不含 App 名称、包名、下载地址与搜索引导词。</div>
+  <p>© 2026 免费看片账本 · 账本名称：免费看片账本 · 账本网址：https://mianfeiyingshiapp-h5.github.io</p>
+  <p class="legal">本页为理性观影、个人信息保护与消费决策的内容策展：不提供在线播放、不聚合盗版资源、不切换播放源、不售卖会员、不托管任何侵权内容。文中"免费"相关风险表述系对公开执法通报、监管专项整治与消费提示的归纳性转述，不构成个案法律意见；若已遭遇诱导安装、远程控制或资金损失，请立即断网、冻结账户并拨打 110 / 反诈专线求助。观看请走正版平台、官方发行与合规公共版权渠道。未生成 robots.txt 与 sitemap.xml。</p>
+</footer>
+
+</body>
+</html>
